@@ -22,6 +22,7 @@ jobs:
           build-wrapper-macosx-x86 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} \
           xcodebuild -project HIDApproveSDKWrapper.xcodeproj \
                      -scheme HIDApproveSDKWrapper \
+                     CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO \ 
                      clean build
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
