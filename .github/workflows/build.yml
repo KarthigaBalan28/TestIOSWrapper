@@ -24,13 +24,12 @@ jobs:
 
       - name: Run Build Wrapper with xcodebuild
         run: |
-          build-wrapper-macosx-x86 --out-dir $BUILD_WRAPPER_OUT_DIR \
-            xcodebuild -project HIDApproveSDKWrapper.xcodeproj \
-                       -scheme HIDApproveSDKWrapper \
-                       -sdk iphonesimulator \
-                       -destination 'platform=iOS Simulator,name=iPhone 16' \
-                       CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO \
-                       clean build
+          build-wrapper-macosx-x86 --out-dir $BUILD_WRAPPER_OUT_DIR \ xcodebuild -project HIDApproveSDKWrapper.xcodeproj \
+             -scheme HIDApproveSDKWrapper \
+             -sdk iphoneos \
+             -destination 'generic/platform=iOS' \
+             CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO \
+             clean build
 
       - name: Run SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
